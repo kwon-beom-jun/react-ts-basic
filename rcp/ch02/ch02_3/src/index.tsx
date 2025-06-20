@@ -43,7 +43,24 @@ root.render(
   </React.StrictMode>
 )
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+/**
+ * < react의 createElement 함수 >
+ * React 18 기준 @types/react 중 핵심 부분만 발췌 + 단순화
+ *
+ * @typeParam P  - 컴포넌트가 받을 props Shape
+ *                 (아래에서 extends {} 제약을 둡니다)
+ * @returns      - ReactElement<P>
+ */
+// declare function createElement<
+//     P extends {},                  // ① ‘props는 반드시 객체여야’ 한다는 타입 제약
+//     T extends string | JSXElementConstructor<P>
+// >(
+//     type: T,                       // ② 태그 이름('div') 또는 함수/클래스 컴포넌트
+//     props?: Attributes & P | null, // ③ 두 번째 매개변수 = props 객체
+//     ...children: ReactNode[]       // ④ 나머지 매개변수는 children 전개
+// ): ReactElement<P>;
+
+
 reportWebVitals()
+
+

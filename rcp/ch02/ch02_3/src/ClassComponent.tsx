@@ -27,16 +27,24 @@ export default class ClassComponent extends Component<ClassComponentProps> {
   /* ④ render() ─ 화면에 그릴 JSX 를 반환 (필수 메서드) */
   render() {
 
-    // const isLoading = true
+    const isLoading = true
     // if (isLoading) return <p>loading...</p>
     // for (let index = 0; index < 10; index++) {}
+
+    const children = (
+      <div>
+        <p>test</p>
+      </div>
+    )
 
     /* ⑤ this.props 로 전달받은 값 구조 분해 */
     const { href, text } = this.props
 
     /* ⑥ JSX 반환: <li> 안에 <a> → <p> 구조 */
+    // undefined나 null인 문장은 그냥 무시하면 그만이므로 유효한 JSX가 됨
     return (
       <li>
+        <div>{!isLoading && <p>{children}</p>}</div>
         <a href={href}>
           <p>{text}</p>
         </a>
